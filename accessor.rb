@@ -8,7 +8,7 @@ module Accessor
     end
   end
 
-  def x(doc)
+  def comment_contents(doc)
     doc.search('.comment > font:first-child').map { |font| font.inner_text}
   end
 
@@ -36,7 +36,7 @@ module Accessor
    def get_comments(doc)
       comments = []
       extract_usernames(doc).each_with_index do |name, index|
-        comments[index] = Comment.new(name, x(doc)[index])
+        comments[index] = Comment.new(name, comment_contents(doc)[index])
       end
       comments
     end

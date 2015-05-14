@@ -1,6 +1,6 @@
+require_relative 'accessor'
 require_relative 'post'
 require 'nokogiri'
-require_relative 'accessor'
 require 'open-uri'
 require 'colorize'
 include Accessor
@@ -28,5 +28,14 @@ end
 
 #aweseomeness
 Active_Scrape.run(ARGV[0])
-puts Active_Scrape.post.title
-# puts Active_Scrape.post.comments[5].comment_contents
+
+#test code for post
+post_properties = ['title', 'url', 'points', 'id', 'author']
+post_properties.each {|property| puts Active_Scrape.post.send(property)}
+
+#test code for comments
+puts "**** Main Post Comment: #{Active_Scrape.post.contents.comment_contents} *****"
+puts "**** Authors of all comments *****"
+Active_Scrape.post.comments.each {|comment| puts comment.author}
+puts "**** Contents of each comment: ******"
+Active_Scrape.post.comments.each {|comment| puts "#{comment.comment_contents}\n"}
