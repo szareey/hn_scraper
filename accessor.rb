@@ -33,10 +33,10 @@ module Accessor
     'https://news.ycombinator.com' + '/'+'id'
   end
 
-   def get_comments(doc, id)
+   def get_comments(doc)
       comments = []
       extract_usernames(doc).each_with_index do |name, index|
-        comments[index] = Comment.new(name, x(doc)[index], id)
+        comments[index] = Comment.new(name, x(doc)[index])
       end
       comments
     end

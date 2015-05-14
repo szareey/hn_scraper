@@ -28,5 +28,5 @@ end
 
 #aweseomeness
 Active_Scrape.run
-puts Active_Scrape.post.title.green
+puts Active_Scrape.post.title
 puts Active_Scrape.post.comments[5].comment_contents

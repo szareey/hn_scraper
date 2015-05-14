@@ -11,7 +11,7 @@ class Post
     @points = get_points(doc)
     @id = get_item_id(doc)
     @url = get_url(doc)
-    @comments = get_comments(doc, @id)
+    @comments = get_comments(doc)
     @contents = @comments.first
     
   end
