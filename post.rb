@@ -13,7 +13,6 @@ class Post
     @url = get_url(doc)
     @comments = get_comments(doc)
     @contents = @comments.first
-    
   end
 
 end
